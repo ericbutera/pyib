@@ -1,0 +1,21 @@
+TODO make this work
+    def getDataFromSocket(sck):
+    data = “”
+sck.settimeout(None)
+    data = sck.recv(1024)
+    sck.settimeout(2)
+
+    while 1:
+        line = “”
+        try:
+            line = sck.recv(1024)
+        except socket.timeout:
+            break
+
+        if line == “”:
+            break
+
+        data += line
+    return data
+    
+    
